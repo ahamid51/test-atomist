@@ -19,10 +19,18 @@ pipeline {
     }
 
     stage('Stage3') {
+      environment {
+        envVariable = '1'
+      }
       parallel {
         stage('Stage3') {
           steps {
             echo 'Stage 3'
+            node(label: 'mashdev03') {
+              sh '''pwd
+whoami'''
+            }
+
           }
         }
 
