@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'mashdev02'
+    }
+
+  }
   stages {
     stage('Stage1') {
       steps {
